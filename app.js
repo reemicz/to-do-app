@@ -1,47 +1,63 @@
 function onReady() {
-    const toDos = [];
-    const addToDoForm = document.getElementById('addToDoForm');
+   let toDos = [];
+   let id = 0;
+   const addToDoForm = document.getElementById('addToDoForm');
 
- function createNewToDo() {
-    const newToDoText = document.getElementById('newToDoText');
-    if (!newToDoText.value) { return; }
+   function createNewToDo() {
+     const newToDoText = document.getElementById('newToDoText');
+     if (!newToDoText.value) { return; }
 
-    toDos.push({
-    title: newToDoText.value,
-    complete: false
-  });
+     toDos.push({
+       title: newToDoText.value,
+       complete: false,
+       id: id++
+     });
 
-   newToDoText.value = '';
+     newToDoText.value = '';
 
-   renderTheUI();
-  }
+     renderTheUI();
+   }
 
-  addToDoForm.addEventListener('submit', event => {
-   event.preventDefault();
-   createNewToDo();
- });
+   function remove(id){
+     return toDos.filter(toDo => toDo.id !== id);
+   }
 
-  function renderTheUI() {
+   addToDoForm.addEventListener('submit', event => {
+     event.preventDefault();
+     createNewToDo();
+     newToDoText.value = '';
+   });
+
+   function renderTheUI() {
      const toDoList = document.getElementById('toDoList');
      toDoList.textContent = '';
-
      toDos.forEach(function(toDo) {
-       const newLi = document.createElement('li');
-       const checkbox = document.createElement('input');
-       checkbox.type = "checkbox";
+      const newLi = document.createElement('li');
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerHTML = '<span>Delete</span>';
 
-        newLi.textContent = toDo.title;
-        toDoList.appendChild(newLi);
-        newLi.appendChild(checkbox);
-    });
+      newLi.textContent = toDo.title;
+      toDoList.appendChild(newLi);
+      newLi.appendChild(checkbox);
+      newLi.appendChild(deleteBtn);
 
+      deleteBtn.addEventListener('click', () => {
+        toDos = remove(toDo.id);
+        renderTheUI();
+      });
+     });
   }
-  renderTheUI();
+
+
+renderTheUI();
 }
+
 
 window.onload = function() {
   onReady();
-};
+}
 
 // Below is the app.js from checkpoint 05 - create delete button for to-do app
 // function onReady() {
