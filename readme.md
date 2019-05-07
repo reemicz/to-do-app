@@ -1,7 +1,7 @@
 # To-Do-App
 Build a simple to-do-app using HTML, CSS and Javascript.
 
-<img src= url(/images/to-do-app.png) width="50%"/>
+![screenshot](/images/to-do-app.png)
 
 
 ## Features
@@ -10,3 +10,4 @@ Build a simple to-do-app using HTML, CSS and Javascript.
 * Click `done` to remove the list item from the list itself.
 
 Check out a preview below or visit my working version [here](https://github.com/tulliehelene/to-do-app)
+!
