@@ -1,7 +1,8 @@
 # To-Do-App
 Build a simple to-do-app using HTML, CSS and Javascript.
 
-<img src="https://drive.google.com/open?id=1yjvYhDbucfmDMLFUxLIL8-uu6vK0ev4V" width="10%"/>
+<img src= url(/images/to-do-app.png) width="50%"/>
+
 
 ## Features
 * Add "things" to-do & click on "`add` to render them into an unordered list
